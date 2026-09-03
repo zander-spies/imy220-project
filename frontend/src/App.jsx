@@ -1,9 +1,12 @@
-import Navigation from "./components/navigation";
+import { BrowserRouter } from "react-router-dom";
+import Navigation from "./components/Navigation";
 
 function App(){
   return(
     <div>
-      <Navigation/>
+      <BrowserRouter>
+        <Navigation/>
+      </BrowserRouter>
     </div>
   );
 }
