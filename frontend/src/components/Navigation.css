@@ -1,0 +1,16 @@
+#logo{
+    width: 200px;
+    height: auto;
+}
+
+#name{
+    width: 300px;
+    height: auto;
+    margin-left: -90px;
+}
+
+.images{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
