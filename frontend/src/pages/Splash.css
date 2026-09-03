@@ -1,0 +1,26 @@
+#logoSplash{
+    width: 400px;
+}
+
+#nameSplash{
+    width: 600px;
+    margin-top: -50px;
+}
+
+.images{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.subtitle{
+    font-size: 18px;
+}
+
+:root{
+    text-align: center;
+}
+
+h1{
+    font-size: 40px;
+}
