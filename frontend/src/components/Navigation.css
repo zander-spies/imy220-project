@@ -9,8 +9,18 @@
     margin-left: -90px;
 }
 
-.images{
+a{
+    text-decoration: none;
+    font-size: 30px;
+    color: black;
+}
+
+.navBar{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+a:hover{
+    color: #3895f5;
 }
