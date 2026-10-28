@@ -1,4 +1,6 @@
-function Bio() {
-  return <p>This is the user's bio</p>;
+function Bio(bio) {
+  return (
+    <p>{bio.bio}</p>
+  );
 }
 export default Bio;

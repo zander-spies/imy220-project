@@ -1,10 +1,10 @@
 // import "./ProfileHeader.css";
 
-function ProfileHeader({ profilePic = "https://placehold.co/120x120", username = "jdoe123" }) {
+function ProfileHeader(profileHeader) {
   return (
     <div className="profile-header">
-      <img src={profilePic} alt={username} className="profile-pic" />
-      <h2 className="profile-username">{username}</h2>
+      <img src={profileHeader.profilePic} alt={profileHeader.username} className="profile-pic" />
+      <h2 className="profile-username">{profileHeader.username}</h2>
     </div>
   );
 }
