@@ -1,33 +1,54 @@
 import { useState } from "react";
-import { BrowserRouter, Link } from "react-router-dom";
+
 import Navigation from "../components/Navigation";
+import SearchInput from "../components/SearchInput";
 import LocalPosts from "../components/LocalPosts";
 import GlobalPosts from "../components/GlobalPosts";
-import SearchInput from "../components/SearchInput";
 import AddPost from "../components/AddPost";
 
-function Home(){
-    const [active, setActive] = useState("local");
-    return(
-        <div>
-            <Navigation/>
-            <div className="buttons">
-                <button onClick={() => setActive("local")}>
+function Home() {
+    const [activeTab, setActiveTab] = useState("local");
+    const [query, setQuery] = useState("");
+
+    return (
+        <div className="home">
+            <Navigation />
+
+            <div className="mb-4 flex justify-center gap-3">
+                <button onClick={() => setActiveTab("local")}>
                     Local
                 </button>
-                <button onClick={() => setActive("global")}>
+
+                <button onClick={() => setActiveTab("global")}>
                     Global
                 </button>
-                <button onClick={() => setActive("addPost")}>
+
+                <button onClick={() => setActiveTab("addPost")}>
                     Add Post
                 </button>
             </div>
-            {/* <SearchInput/> */}
 
-            <div className="content">
-                {active === "local" && <LocalPosts />}
-                {active === "global" && <GlobalPosts />}
-                {active === "addPost" && <AddPost/>}
+            {activeTab !== "addPost" && (
+                <SearchInput
+                    query={query}
+                    setQuery={setQuery}
+                />
+            )}
+
+            <div className="mt-4">
+                {activeTab === "local" && (
+                    <LocalPosts input={query} />
+                )}
+
+                {activeTab === "global" && (
+                    <GlobalPosts input={query} />
+                )}
+
+                {activeTab === "addPost" && (
+                    <AddPost
+                        onPostAdded={() => setActiveTab("local")}
+                    />
+                )}
             </div>
         </div>
     );

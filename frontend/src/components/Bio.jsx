@@ -1,6 +1,6 @@
 function Bio(bio) {
   return (
-    <p>{bio.bio}</p>
+    <p className="text-gray-700">{bio.bio}</p>
   );
 }
 export default Bio;

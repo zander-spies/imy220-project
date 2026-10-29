@@ -1,31 +1,24 @@
-function PreviewPost({post}){
-    const {
-    username = "jdoe123",
-    image = "https://placehold.co/400x300",
-    caption = "Beautiful sunset landing at JFK today ✈️",
-    likes = 0,
-    comments = 0,
-    } = post || {};
-    return(
-        <div>
-            <div className="preview-post">
-                <div className="preview-header">
-                    <span className="preview-username">{username}</span>
-                </div>
+import { Link } from "react-router-dom";
 
-                <img src={image} alt="Post" className="preview-image" />
+function PreviewPost({ post }) {
+    const postImage = `http://localhost:3000${post.imageUrl}`;
 
-                <div className="preview-info">
-                    <p className="preview-caption">{caption}</p>
-                    <div className="preview-stats">
-                    <span>{likes} likes</span>
-                    <span> {comments} comments</span>
-                    </div>
-                </div>    
-            </div>
-        </div>
+    return (
+        <Link
+            to={`/posts/${post._id}`}
+            className="block w-64 overflow-hidden rounded-lg bg-white text-left shadow transition hover:shadow-md"
+        >
+            <img
+                src={postImage}
+                alt={post.caption}
+                className="h-48 w-full object-cover"
+            />
+
+            <p className="line-clamp-2 p-3 text-sm text-gray-800">
+                {post.caption}
+            </p>
+        </Link>
     );
-
 }
 
 export default PreviewPost;

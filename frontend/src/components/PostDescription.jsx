@@ -4,7 +4,7 @@ function PostDescription({
   onEdit,
 }) {
   return (
-    <div className="post-description">
+    <div className="mt-3 text-left">
       <p><strong>{username}</strong>: {caption}</p>
       <button onClick={onEdit}>Edit Post</button>
     </div>

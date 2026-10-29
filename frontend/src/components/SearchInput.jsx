@@ -1,43 +1,20 @@
-import { useState } from "react";
-import LocalPosts from "./LocalPosts";
+import SearchResults from "./SearchResults";
 
-function SearchInput() {
-  const [query, setQuery] = useState("");
+function SearchInput({ query, setQuery }) {
+    return (
+        <div className="mx-auto mb-4 w-full max-w-xl text-left">
+            <input
+                id="search"
+                type="text"
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                placeholder="Search users, posts, albums, hashtags..."
+                autoComplete="off"
+            />
 
-  // return (
-  //   <form className="search-form">
-  //     <input
-  //       type="text"
-  //       placeholder="Search posts, users..."
-  //       value={query}
-  //       onChange={(e) => setQuery(e.target.value)}
-  //       className="search-input"
-  //     />
-  //     <button type="submit" className="search-button">
-  //       Search
-  //     </button>
-  //   </form>
-  // );
-
-  return(
-    <div className="searchForm">
-      <input 
-        id="search"
-        type="text"
-        value={query}
-        onChange={(event) => setQuery(event.target.value)}
-        placeholder="Search"
-      />
-      <LocalPosts input={query}/>
-    </div>
-    
-  );
-
-
-
-
-
-
+            <SearchResults query={query} />
+        </div>
+    );
 }
 
 export default SearchInput;
